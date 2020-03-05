@@ -1,0 +1,90 @@
+<div class="container-fluid">
+  <div class="product_main">
+    <div class="page_title_block">
+      <h4>Add Product</h4>
+    </div>
+    <div class="icon_block">
+      <i class="fas fa-cart-plus icon_set"></i>
+    </div>
+    <div class="form_div">
+      <form>
+        <div class="row">
+          <div class="col-md-6">
+            <!-- <div class="form-group" :class="{ 'form-group--error': $v.productForm.product_name.$error }"> -->
+            <div class="form-group">
+              <label for="product_name">Product Name</label>
+              <input type="text" class="form-control">
+            </div>
+            <!-- <div class="error" v-if="!$v.productForm.product_name.required">Product Name is required</div>
+            <div class="error" v-if="!$v.productForm.product_name.minLength">Product Name must have at least
+              {{$v.productForm.product_name.$params.minLength.min}} letters.
+            </div> -->
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="product_name">Product Price</label>
+              <input type="text" class="form-control">
+            </div>
+            <!-- <div class="error">Product Description is required
+            </div> -->
+          </div>
+          <div class="col-md-6">
+            <!-- <div class="form-group" :class="{ 'form-group--error': $v.productForm.item_total.$error }"> -->
+            <div class="form-group">
+              <label for="product_name">Toatl Items</label>
+              <input type="text" class="form-control" v-model="productForm.item_total">
+            </div>
+            <!-- <div class="error">Toatl Items is required</div> -->
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="typo__label">Select Category</label>
+              <p-dropdown [options]="cities" [(ngModel)]="selectedCity" placeholder="Select a City" optionLabel="name"
+                 name="selectedCity"></p-dropdown>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <!-- <div class="form-group" :class="{ 'form-group--error': $v.productForm.category_name.$error }"> -->
+            <div class="form-group">
+              <label for="category_name">Category Name</label>
+              <input type="text" class="form-control">
+            </div>
+            <!-- <div class="error">Category Name is required</div> -->
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="product_name">Product Images</label>
+              <input type="file" class="form-control" (change)="getProImage($event)" multiple>
+            </div>
+          </div>
+          <div class="col-md-12" *ngIf="isImageData.length > 0">
+            <div class="row text-center text-lg-left">
+              <div class="col-lg-3 col-md-4 col-6" *ngFor="let item of isImageData">
+                <div class="img_preview">
+                  <img [src]="item" alt="">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="product_description">Product Description</label>
+              <input type="text" class="form-control">
+            </div>
+            <!-- <div class="error">Product Description is
+              required</div> -->
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4"></div>
+          <div class="col-md-8">
+            <div class="btn_block">
+              <button class="add">Add </button>
+              <button class="cancel" routerLink="/products">Cancel </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
